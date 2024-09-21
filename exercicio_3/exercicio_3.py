@@ -5,12 +5,12 @@
 
 import json #importa o modulo json(permite manipular arquivos json)
 
-with open('D:/Estudo/estagio_sp/exercicio_1/exercicio_3/faturamento.json', 'r') as file: #indica qual arquivo vamos utilizar, 'r' indica que vai ser usado apenas para leitura
+with open('D:/Estudo/estagio_sp/exercicio_1/exercicio_3/dados.json', 'r') as file: #indica qual arquivo vamos utilizar, 'r' indica que vai ser usado apenas para leitura
 #PRECISEI COLOCAR O LOCAL EXATO DA PASTA, POIS POR ALGUM MOTIVO NÃO ESTAVA SENDO IDENTIFICADO O ARQUIVO JSON NA MESMA PASTA, MAS O CÓGIGO PARA QQUANDO AMBOS ESTÃO NA MESMA PASTA É:
-#with open('faturamento.json', 'r') as file:
+#with open('dados.json', 'r') as file:
     dados = json.load(file) #coloca os dados do arquivo json na variavel dados
 
-faturamentos = [dia['valor']for dia in dados['faturamento_diario']] #cria uma lista na variavel faturamentos com os valores de venda de cada dia
+faturamentos = [dia['valor']for dia in dados] #cria uma lista na variavel faturamentos com os valores de venda de cada dia
 faturamentos_venda = [valor for valor in faturamentos if valor > 0] #remove os dias com venda <= 0
 
 faturamento_menor = min(faturamentos_venda) #indica qual o menor faturamento dentro da lista
